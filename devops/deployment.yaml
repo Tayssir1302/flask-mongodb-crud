@@ -1,3 +1,4 @@
+# MongoDB remains unchanged
 apiVersion: v1
 kind: Service
 metadata:
@@ -37,30 +38,30 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: first-pipeline
+  name: Flask-Mongodb-Test-Project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: first-pipeline
+      app: Flask-Mongodb-Test-Project
   template:
     metadata:
       labels:
-        app: first-pipeline
+        app: Flask-Mongodb-Test-Project
     spec:
       containers:
-        - name: first-pipeline
-          image: iyedhosni20/first-pipeline:latest
+        - name: Flask-Mongodb-Test-Project
+          image: iyedhosni20/Flask-Mongodb-Test-Project:latest
           ports:
             - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: first-pipeline-service
+  name: Flask-Mongodb-Test-Project-service
 spec:
   selector:
-    app: first-pipeline
+    app: Flask-Mongodb-Test-Project
   ports:
     - port: 5000
       targetPort: 5000
